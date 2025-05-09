@@ -5,6 +5,20 @@
 
   --scaleFlip: 1;
   --posFlip: 0;
+
+  /* Colores para las flores mejoradas */
+  --flower-color1: #ff7eb9;
+  --flower-color2: #ff65a3;
+  --flower-color3: #ff91c4;
+  --flower-center: #ffd700;
+  --flower-leaves: #4caf50;
+
+  /* Paleta extendida para flores mejoradas */
+  --rose-color1: #e91e63;
+  --rose-color2: #d81b60;
+  --rose-color3: #c2185b;
+  --tulip-color1: #9c27b0;
+  --tulip-color2: #7b1fa2;
 }
 body,
 .seaLevel {
@@ -17,7 +31,10 @@ p {
   left: 46%;
   top: 40%;
   font-size: 1.5rem;
-
+  font-weight: bold;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 .fish {
   position: absolute;
@@ -171,6 +188,362 @@ p {
   left: 0;
   opacity: 0.4;
 }
+
+/* Estilos mejorados para las flores */
+.flowers {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 200px;
+  pointer-events: none;
+}
+
+.left-flowers {
+  left: 10px;
+}
+
+.right-flowers {
+  right: 10px;
+}
+
+/* Base común para todas las flores */
+.flower {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  transform-origin: center;
+}
+
+/* Posicionamiento especializado para cada flor */
+.left-flowers .flower:nth-child(1) {
+  top: 15%;
+  left: 30%;
+  transform: scale(0.85) rotate(-5deg);
+}
+
+.left-flowers .flower:nth-child(2) {
+  top: 38%;
+  left: 25%;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.left-flowers .flower:nth-child(3) {
+  top: 62%;
+  left: 40%;
+  transform: scale(0.9) rotate(-8deg);
+}
+
+.left-flowers .flower:nth-child(4) {
+  top: 85%;
+  left: 25%;
+  transform: scale(0.75) rotate(12deg);
+}
+
+.left-flowers .flower:nth-child(5) {
+  top: 28%;
+  left: 55%;
+  transform: scale(0.6) rotate(-15deg);
+}
+
+.right-flowers .flower:nth-child(1) {
+  top: 12%;
+  left: 60%;
+  transform: scale(0.8) rotate(8deg);
+}
+
+.right-flowers .flower:nth-child(2) {
+  top: 35%;
+  left: 45%;
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.right-flowers .flower:nth-child(3) {
+  top: 60%;
+  left: 65%;
+  transform: scale(0.9) rotate(10deg);
+}
+
+.right-flowers .flower:nth-child(4) {
+  top: 80%;
+  left: 50%;
+  transform: scale(0.7) rotate(-12deg);
+}
+
+.right-flowers .flower:nth-child(5) {
+  top: 25%;
+  left: 20%;
+  transform: scale(0.65) rotate(15deg);
+}
+
+/* Estructura base de pétalos CORREGIDA */
+.flower .petals {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: flowerRotate 20s linear infinite;
+}
+
+/* Pétalo mejorado con mejor forma */
+.flower .petal {
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  background-color: var(--flower-color1);
+  border-radius: 60% 60% 20% 60%;
+  top: 20%;
+  left: 28%;
+  transform-origin: center bottom;
+  animation: petalWave 8s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px rgba(255, 126, 185, 0.3);
+}
+
+.flower .petal:nth-child(1) {
+  transform: rotate(0deg);
+  background-color: var(--flower-color1);
+}
+
+.flower .petal:nth-child(2) {
+  transform: rotate(72deg);
+  background-color: var(--flower-color2);
+  animation-delay: 0.2s;
+}
+
+.flower .petal:nth-child(3) {
+  transform: rotate(144deg);
+  background-color: var(--flower-color3);
+  animation-delay: 0.4s;
+}
+
+.flower .petal:nth-child(4) {
+  transform: rotate(216deg);
+  background-color: var(--flower-color2);
+  animation-delay: 0.6s;
+}
+
+.flower .petal:nth-child(5) {
+  transform: rotate(288deg);
+  background-color: var(--flower-color1);
+  animation-delay: 0.8s;
+}
+
+/* Estilos para rosas */
+.rose .petals {
+  animation: roseRotate 25s linear infinite;
+}
+
+.rose .petal {
+  width: 60%;
+  height: 60%;
+  border-radius: 70% 70% 30% 30%;
+  background-color: var(--rose-color1);
+  opacity: 0.85;
+  top: 20%;
+  left: 20%;
+}
+
+.rose .petal:nth-child(1) {
+  transform: rotate(0deg) translateY(5%);
+  z-index: 5;
+  background-color: var(--rose-color1);
+}
+
+.rose .petal:nth-child(2) {
+  transform: rotate(50deg) translateY(10%);
+  z-index: 4;
+  background-color: var(--rose-color2);
+  width: 58%;
+  height: 58%;
+}
+
+.rose .petal:nth-child(3) {
+  transform: rotate(110deg) translateY(15%);
+  z-index: 3;
+  background-color: var(--rose-color3);
+  width: 56%;
+  height: 56%;
+}
+
+.rose .petal:nth-child(4) {
+  transform: rotate(180deg) translateY(10%);
+  z-index: 2;
+  background-color: var(--rose-color2);
+  width: 54%;
+  height: 54%;
+}
+
+.rose .petal:nth-child(5) {
+  transform: rotate(250deg) translateY(5%);
+  z-index: 1;
+  background-color: var(--rose-color1);
+  width: 52%;
+  height: 52%;
+}
+
+/* Estilos para tulipanes */
+.tulip .petals {
+  animation: tulipSway 15s ease-in-out infinite alternate;
+}
+
+.tulip .petal {
+  width: 35%;
+  height: 60%;
+  border-radius: 50% 50% 0 0;
+  background-color: var(--tulip-color1);
+  top: 10%;
+  left: 32.5%;
+}
+
+.tulip .petal:nth-child(1) {
+  transform: rotate(0deg) translateY(0);
+  z-index: 5;
+  background-color: var(--tulip-color1);
+}
+
+.tulip .petal:nth-child(2) {
+  transform: rotate(72deg) translateY(0);
+  z-index: 4;
+  background-color: var(--tulip-color2);
+}
+
+.tulip .petal:nth-child(3) {
+  transform: rotate(144deg) translateY(0);
+  z-index: 3;
+  background-color: var(--tulip-color1);
+}
+
+.tulip .petal:nth-child(4) {
+  transform: rotate(216deg) translateY(0);
+  z-index: 2;
+  background-color: var(--tulip-color2);
+}
+
+.tulip .petal:nth-child(5) {
+  transform: rotate(288deg) translateY(0);
+  z-index: 1;
+  background-color: var(--tulip-color1);
+}
+
+/* Variación de colores para mayor diversidad */
+.flower:nth-child(even):not(.rose):not(.tulip) .petal:nth-child(odd) {
+  background-color: var(--flower-color3);
+}
+
+.flower:nth-child(3n):not(.rose):not(.tulip) .petal:nth-child(3n) {
+  background-color: #ffc0cb;
+}
+
+.flower:nth-child(4):not(.rose):not(.tulip) .petal {
+  background-color: #ff9edf;
+}
+
+.flower:nth-child(5):not(.rose):not(.tulip) .petal:nth-child(even) {
+  background-color: #ffb6c1;
+}
+
+/* Centro de la flor - CORREGIDO y MEJORADO */
+.flower::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  top: 36%;
+  left: 36%;
+  background-color: var(--flower-center);
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Centro específico para rosas */
+.rose::after {
+  width: 35%;
+  height: 35%;
+  top: 33%;
+  left: 33%;
+  background-color: #8B4513;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Centro específico para tulipanes */
+.tulip::after {
+  width: 25%;
+  height: 25%;
+  top: 25%;
+  left: 38%;
+  background-color: #333;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Tallo y hojas mejorados */
+.flower::before {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 120%;
+  bottom: -80%;
+  left: 46%;
+  background-color: var(--flower-leaves);
+  z-index: -1;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.flower .leaf {
+  position: absolute;
+  width: 40%;
+  height: 20%;
+  background-color: var(--flower-leaves);
+  border-radius: 50% 50% 0 50%;
+  bottom: -30%;
+  left: 25%;
+  transform: rotate(-30deg);
+  z-index: -1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.flower .leaf:nth-child(1) {
+  transform: rotate(-30deg) scaleX(-1);
+  left: auto;
+  right: 25%;
+}
+
+/* Animaciones mejoradas */
+@keyframes flowerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roseRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tulipSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes petalWave {
+  0%, 100% {
+    transform: rotate(var(--rotate-deg)) scale(1);
+  }
+  50% {
+    transform: rotate(calc(var(--rotate-deg) + 5deg)) scale(1.1);
+  }
+}
+
 @keyframes fishAnim {
   0% {
     offset-distance: 0%;
