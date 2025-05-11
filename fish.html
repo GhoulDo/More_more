@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="fish.css" />
-    <title>Fish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Feliz Día de la Madre</title>
   </head>
   <body>
+    <!-- Burbujas animadas -->
+    <div class="bubbles">
+      <!-- Las burbujas se generarán con JavaScript -->
+    </div>
+    
     <!-- Flores del lado izquierdo -->
     <div class="flowers left-flowers">
       <div class="flower rose">
@@ -66,7 +72,8 @@
       </div>
     </div>
     
-    <p>Feliz Dia De La Madre, Ita💕</p>
+    <p>Feliz Dia De La Madre, Ita<span class="heart">💕</span></p>
+    
     <div class="fish">
       <div class="koiCoil"></div>
       <div class="koiCoil"></div>
@@ -162,5 +169,33 @@
     </div>
     
     <div class="seaLevel"></div>
+    
+    <!-- Script para generar burbujas -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const bubblesContainer = document.querySelector('.bubbles');
+        
+        // Crear 30 burbujas con propiedades aleatorias
+        for (let i = 0; i < 30; i++) {
+          const bubble = document.createElement('div');
+          bubble.classList.add('bubble');
+          
+          // Propiedades aleatorias para cada burbuja
+          const size = Math.random() * 15 + 5;
+          const left = Math.random() * 100;
+          const delay = Math.random() * 5;
+          const duration = Math.random() * 10 + 10;
+          
+          // Aplicar estilos
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+          bubble.style.left = `${left}%`;
+          bubble.style.animationDelay = `${delay}s`;
+          bubble.style.animationDuration = `${duration}s`;
+          
+          bubblesContainer.appendChild(bubble);
+        }
+      });
+    </script>
   </body>
 </html>
